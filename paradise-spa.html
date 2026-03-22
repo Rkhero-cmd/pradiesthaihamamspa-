@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Paradise Thai Hamam Spa — Ahmedabad</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #c9a96e;
+    --gold-light: #e8d5a3;
+    --gold-dark: #8b6914;
+    --deep: #0e0b07;
+    --warm: #1a1308;
+    --cream: #f5efe6;
+    --text-light: #d4c5a9;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep);
+    color: var(--text-light);
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(14,11,7,0.95), transparent);
+    backdrop-filter: blur(4px);
+  }
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem; letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--text-light); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    height: 100vh; position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 60%, rgba(201,169,110,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 30%, rgba(201,169,110,0.07) 0%, transparent 50%),
+      linear-gradient(160deg, #0e0b07 0%, #1a1308 50%, #0a0804 100%);
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a96e' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-line-left, .hero-line-right {
+    position: absolute; top: 50%; width: 1px; height: 40vh;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity: 0.4;
+    animation: lineReveal 2s ease forwards;
+  }
+  .hero-line-left { left: 8%; transform: translateY(-50%); }
+  .hero-line-right { right: 8%; transform: translateY(-50%); }
+  @keyframes lineReveal { from { opacity: 0; height: 0; } to { opacity: 0.4; height: 40vh; } }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    animation: fadeUp 1.4s ease forwards;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem; letter-spacing: 0.5em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 300; line-height: 1;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+  .hero-title em {
+    font-style: italic; color: var(--gold-light);
+  }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 300; font-style: italic;
+    color: var(--gold); letter-spacing: 0.15em;
+    margin-bottom: 3rem;
+  }
+  .hero-divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; margin-bottom: 3rem;
+  }
+  .hero-divider span { width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .hero-divider svg { width: 20px; height: 20px; fill: var(--gold); }
+  .hero-desc {
+    font-size: 0.9rem; letter-spacing: 0.1em;
+    color: var(--text-light); opacity: 0.8;
+    max-width: 420px; margin: 0 auto 3rem;
+    line-height: 2;
+  }
+  .btn-gold {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem; letter-spacing: 0.4em;
+    text-transform: uppercase; text-decoration: none;
+    transition: all 0.4s;
+    position: relative; overflow: hidden;
+  }
+  .btn-gold::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--gold); transform: translateX(-101%);
+    transition: transform 0.4s;
+  }
+  .btn-gold:hover { color: var(--deep); }
+  .btn-gold:hover::before { transform: translateX(0); }
+  .btn-gold span { position: relative; z-index: 1; }
+  .hero-scroll {
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+    color: var(--gold); opacity: 0.6;
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  .hero-scroll::after {
+    content: ''; width: 1px; height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  @keyframes bounce { 0%,100% { opacity: 0.6; } 50% { opacity: 1; } }
+
+  /* SECTION BASE */
+  section { padding: 8rem 4rem; }
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem; letter-spacing: 0.5em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300; color: var(--cream);
+    line-height: 1.15; margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  /* ABOUT */
+  .about {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-box {
+    width: 100%; padding-bottom: 130%;
+    background: linear-gradient(135deg, #1a1308, #2a1f0e);
+    border: 1px solid rgba(201,169,110,0.2);
+    position: relative; overflow: hidden;
+  }
+  .about-box::before {
+    content: 'ॐ';
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12rem; color: rgba(201,169,110,0.06);
+    line-height: 1;
+  }
+  .about-box-inner {
+    position: absolute; inset: 2rem;
+    border: 1px solid rgba(201,169,110,0.15);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem;
+  }
+  .about-box-inner .big-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem; font-weight: 300;
+    color: var(--gold); line-height: 1;
+  }
+  .about-box-inner p {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem; letter-spacing: 0.4em;
+    color: var(--text-light); text-transform: uppercase;
+  }
+  .about-corner {
+    position: absolute; width: 20px; height: 20px;
+    border-color: var(--gold); border-style: solid; opacity: 0.5;
+  }
+  .about-corner.tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+  .about-corner.tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+  .about-corner.bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+  .about-corner.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+  .about-text p {
+    font-size: 0.95rem; line-height: 2;
+    color: rgba(212,197,169,0.8);
+    margin-bottom: 1.5rem;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 2rem; margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(201,169,110,0.2);
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 300; color: var(--gold);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text-light);
+    opacity: 0.7;
+  }
+
+  /* SERVICES */
+  .services-section {
+    background: linear-gradient(180deg, var(--deep) 0%, var(--warm) 50%, var(--deep) 100%);
+  }
+  .services-header { text-align: center; max-width: 600px; margin: 0 auto 5rem; }
+  .services-header .section-label { justify-content: center; }
+  .services-header .section-label::before { display: none; }
+  .services-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5px;
+    background: rgba(201,169,110,0.15);
+  }
+  .service-card {
+    background: var(--warm);
+    padding: 3.5rem 2.5rem;
+    position: relative; overflow: hidden;
+    transition: background 0.4s;
+    cursor: default;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--gold); transform: scaleX(0);
+    transition: transform 0.4s; transform-origin: left;
+  }
+  .service-card:hover { background: #1e160a; }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    font-size: 2.5rem; margin-bottom: 1.5rem;
+    display: block;
+  }
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400;
+    color: var(--cream); margin-bottom: 0.5rem;
+  }
+  .service-duration {
+    font-size: 0.7rem; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .service-desc {
+    font-size: 0.85rem; line-height: 1.9;
+    color: rgba(212,197,169,0.7);
+  }
+  .service-num {
+    position: absolute; top: 2rem; right: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; font-weight: 300;
+    color: rgba(201,169,110,0.06);
+    line-height: 1;
+  }
+
+  /* EXPERIENCE */
+  .experience-section {
+    max-width: 1200px; margin: 0 auto;
+  }
+  .experience-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem;
+    align-items: center;
+  }
+  .exp-features { list-style: none; margin-top: 2.5rem; }
+  .exp-features li {
+    display: flex; align-items: flex-start; gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(201,169,110,0.1);
+  }
+  .exp-features li:first-child { border-top: 1px solid rgba(201,169,110,0.1); }
+  .exp-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold); margin-top: 0.4rem; flex-shrink: 0;
+  }
+  .exp-features li h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+  .exp-features li p { font-size: 0.82rem; line-height: 1.8; opacity: 0.7; }
+  .exp-visual {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .exp-card {
+    padding: 2.5rem 1.5rem;
+    border: 1px solid rgba(201,169,110,0.15);
+    text-align: center;
+    transition: border-color 0.3s;
+  }
+  .exp-card:hover { border-color: rgba(201,169,110,0.4); }
+  .exp-card:nth-child(2) { margin-top: 2rem; }
+  .exp-card:nth-child(3) { margin-top: -2rem; }
+  .exp-emoji { font-size: 2rem; display: block; margin-bottom: 1rem; }
+  .exp-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .exp-card p { font-size: 0.78rem; opacity: 0.6; line-height: 1.7; }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--warm);
+    text-align: center;
+  }
+  .contact-inner { max-width: 700px; margin: 0 auto; }
+  .contact-inner .section-label { justify-content: center; }
+  .contact-inner .section-label::before { display: none; }
+  .contact-info {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 3rem; margin: 4rem 0;
+  }
+  .contact-item h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem; letter-spacing: 0.3em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .contact-item p {
+    font-size: 0.88rem; line-height: 1.8;
+    color: var(--text-light); opacity: 0.8;
+  }
+  .contact-item a { color: var(--gold-light); text-decoration: none; }
+  .contact-divider {
+    display: flex; align-items: center; gap: 2rem;
+    margin: 3rem 0;
+    opacity: 0.3;
+  }
+  .contact-divider::before, .contact-divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--gold);
+  }
+  .contact-divider span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; color: var(--gold);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem 4rem;
+    border-top: 1px solid rgba(201,169,110,0.15);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem; letter-spacing: 0.3em;
+    color: var(--gold);
+  }
+  footer p {
+    font-size: 0.75rem; opacity: 0.4;
+    letter-spacing: 0.1em;
+  }
+
+  /* GOLD ORNAMENT */
+  .ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; margin: 2rem 0;
+    opacity: 0.5;
+  }
+  .ornament::before, .ornament::after {
+    content: ''; flex: 1; max-width: 80px; height: 1px; background: var(--gold);
+  }
+  .ornament-center {
+    width: 6px; height: 6px;
+    border: 1px solid var(--gold);
+    transform: rotate(45deg);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 2rem; }
+    .about, .experience-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .contact-info { grid-template-columns: 1fr; gap: 2rem; }
+    .exp-visual { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .hero-line-left, .hero-line-right { display: none; }
+  }
+
+  /* ANIMATIONS */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* 3D SCENE */
+  .scene-3d { perspective: 1200px; }
+
+  /* 3D SERVICE CARDS */
+  .services-grid { transform-style: preserve-3d; }
+  .service-card {
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease, background 0.4s, box-shadow 0.4s;
+    will-change: transform;
+  }
+  .service-card:hover {
+    transform: translateZ(20px) rotateX(-4deg) rotateY(4deg) scale(1.02);
+    box-shadow:
+      8px 16px 40px rgba(0,0,0,0.6),
+      0 0 30px rgba(201,169,110,0.1),
+      inset 0 1px 0 rgba(201,169,110,0.2);
+  }
+
+  /* 3D EXP CARDS */
+  .exp-card {
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease, border-color 0.3s, box-shadow 0.4s;
+  }
+  .exp-card:hover {
+    transform: translateZ(15px) rotateX(-3deg) rotateY(3deg);
+    box-shadow: 6px 12px 30px rgba(0,0,0,0.5), 0 0 20px rgba(201,169,110,0.08);
+    border-color: rgba(201,169,110,0.5) !important;
+  }
+
+  /* 3D HERO TITLE */
+  .hero-title {
+    text-shadow:
+      2px 2px 0 rgba(201,169,110,0.15),
+      4px 4px 0 rgba(201,169,110,0.08),
+      6px 6px 0 rgba(0,0,0,0.3),
+      0 0 60px rgba(201,169,110,0.15);
+    filter: drop-shadow(0 4px 20px rgba(201,169,110,0.2));
+  }
+
+  /* 3D ABOUT BOX */
+  .about-box {
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease, box-shadow 0.6s;
+    box-shadow: 10px 20px 60px rgba(0,0,0,0.5);
+  }
+  .about-box:hover {
+    transform: rotateY(-8deg) rotateX(4deg) translateZ(10px);
+    box-shadow: 20px 30px 80px rgba(0,0,0,0.7), 0 0 40px rgba(201,169,110,0.1);
+  }
+
+  /* 3D STAT ITEMS */
+  .stat-item {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+  }
+  .stat-item:hover { transform: translateZ(10px) scale(1.05); }
+
+  /* FLOATING CONTACT BUTTONS */
+  .float-btns {
+    position: fixed;
+    right: 1.5rem; bottom: 2rem;
+    z-index: 999;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 1rem;
+  }
+  .float-btn {
+    width: 58px; height: 58px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: floatIn 0.6s ease backwards;
+  }
+  .float-btn:nth-child(1) { animation-delay: 0.2s; }
+  .float-btn:nth-child(2) { animation-delay: 0.4s; }
+  .float-btn:nth-child(3) { animation-delay: 0.6s; }
+  @keyframes floatIn {
+    from { opacity: 0; transform: translateX(40px) scale(0.5); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+  }
+  .float-btn:hover {
+    transform: translateY(-4px) scale(1.12) rotateZ(-5deg);
+  }
+  .float-btn svg { width: 26px; height: 26px; position: relative; z-index: 1; }
+
+  /* WhatsApp */
+  .float-wa {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    box-shadow: 0 6px 20px rgba(37,211,102,0.45), 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .float-wa:hover { box-shadow: 0 10px 30px rgba(37,211,102,0.6), 0 4px 12px rgba(0,0,0,0.4); }
+
+  /* Call 1 */
+  .float-call1 {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    box-shadow: 0 6px 20px rgba(201,169,110,0.45), 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .float-call1:hover { box-shadow: 0 10px 30px rgba(201,169,110,0.6), 0 4px 12px rgba(0,0,0,0.4); }
+
+  /* Call 2 */
+  .float-call2 {
+    background: linear-gradient(135deg, #c47c2f, #7a4a10);
+    box-shadow: 0 6px 20px rgba(196,124,47,0.45), 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .float-call2:hover { box-shadow: 0 10px 30px rgba(196,124,47,0.6), 0 4px 12px rgba(0,0,0,0.4); }
+
+  /* Tooltip */
+  .float-btn .tooltip {
+    position: absolute; right: 70px; top: 50%; transform: translateY(-50%);
+    background: rgba(14,11,7,0.95); border: 1px solid rgba(201,169,110,0.3);
+    color: var(--gold-light); padding: 0.5rem 1rem;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+    white-space: nowrap; border-radius: 4px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    transform: translateY(-50%) translateX(6px);
+    font-family: 'Nunito Sans', sans-serif;
+  }
+  .float-btn .tooltip::after {
+    content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: rgba(201,169,110,0.3);
+    border-right: none;
+  }
+  .float-btn:hover .tooltip {
+    opacity: 1; transform: translateY(-50%) translateX(0);
+  }
+
+  /* Pulse ring on WA */
+  .float-wa::after {
+    content: ''; position: absolute; inset: -4px; border-radius: 50%;
+    border: 2px solid rgba(37,211,102,0.4);
+    animation: pulse-ring 2s ease-out infinite;
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+
+  /* 3D BTN GOLD */
+  .btn-gold {
+    box-shadow: 0 4px 15px rgba(201,169,110,0.2), 0 2px 0 rgba(201,169,110,0.3);
+    transition: all 0.4s, transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-gold:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(201,169,110,0.35), 0 4px 0 rgba(139,105,20,0.5);
+  }
+  .btn-gold:active { transform: translateY(1px); }
+
+  /* CONTACT BOOK BUTTONS */
+  .contact-cta-row {
+    display: flex; gap: 1.5rem; justify-content: center;
+    flex-wrap: wrap; margin-top: 1rem;
+  }
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #fff; text-decoration: none;
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.3em;
+    border-radius: 2px;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.3), 0 3px 0 rgba(0,80,40,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    transform-style: preserve-3d;
+  }
+  .btn-wa:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 12px 30px rgba(37,211,102,0.45), 0 5px 0 rgba(0,80,40,0.5);
+  }
+  .btn-call {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--deep); text-decoration: none;
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.3em;
+    border-radius: 2px;
+    box-shadow: 0 6px 20px rgba(201,169,110,0.3), 0 3px 0 rgba(100,60,0,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    transform-style: preserve-3d;
+  }
+  .btn-call:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 12px 30px rgba(201,169,110,0.45), 0 5px 0 rgba(100,60,0,0.5);
+  }
+  .btn-icon { width: 18px; height: 18px; flex-shrink: 0; }
+
+  /* 3D SECTION TITLES */
+  .section-title {
+    text-shadow: 2px 3px 0 rgba(0,0,0,0.4), 0 0 30px rgba(201,169,110,0.08);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">The Paradise Spa</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-line-left"></div>
+  <div class="hero-line-right"></div>
+  <div class="hero-content">
+    <div class="hero-tagline">Ahmedabad's Finest Wellness Sanctuary</div>
+    <h1 class="hero-title">The <em>Paradise</em></h1>
+    <p class="hero-subtitle">Thai Hamam Spa</p>
+    <div class="hero-divider">
+      <span></span>
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93s3.06-7.44 7-7.93v15.86zm2-15.86c1.03.13 2 .45 2.87.93H13v-.93zM13 7h5.24c.25.31.48.65.68 1H13V7zm0 3h6.74c.08.33.15.66.19 1H13v-1zm0 9.93V19h2.87c-.87.48-1.84.8-2.87.93zM18.24 17H13v-1h5.92c-.2.35-.43.68-.68 1zm1.5-3H13v-1h6.93c-.04.34-.11.67-.19 1z"/></svg>
+      <span></span>
+    </div>
+    <p class="hero-desc">A sacred space where ancient Thai healing arts meet the timeless ritual of the Hamam. Surrender to pure restoration.</p>
+    <a href="#services" class="btn-gold"><span>Explore Our Rituals</span></a>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding: 8rem 4rem;">
+  <div class="about reveal">
+    <div class="about-visual">
+      <div class="about-box">
+        <div class="about-box-inner">
+          <span class="big-num">10+</span>
+          <p>Years of Excellence</p>
+          <div class="ornament"><div class="ornament-center"></div></div>
+          <span class="big-num" style="font-size:3rem;">Grand Monarch</span>
+          <p style="text-align:center; max-width: 180px;">FF-115, Ramdevnagar Road, Ahmedabad</p>
+        </div>
+        <div class="about-corner tl"></div>
+        <div class="about-corner tr"></div>
+        <div class="about-corner bl"></div>
+        <div class="about-corner br"></div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">A Retreat Born from <em>Ancient Wisdom</em></h2>
+      <p>Nestled within the prestigious Grand Monarch complex, The Paradise Thai Hamam Spa stands as Ahmedabad's most distinguished wellness sanctuary. We have crafted a space where tradition breathes life into every treatment.</p>
+      <p>Our expert therapists are trained in the authentic traditions of Thai massage and the centuries-old Hamam ritual — bringing you an unparalleled journey of relaxation, healing, and renewal.</p>
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-num">20+</span>
+          <span class="stat-label">Treatments</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">5★</span>
+          <span class="stat-label">Rated</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">Relaxation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services-section">
+  <div class="services-header reveal">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Sacred <em>Treatments</em> & Rituals</h2>
+    <p style="font-size:0.9rem; line-height:2; opacity:0.7; margin-top:1rem;">Each treatment is a carefully curated journey, blending ancient techniques with the finest aromatic oils and therapeutic touch.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-icon">🌿</span>
+      <div class="service-num">01</div>
+      <h3 class="service-name">Traditional Thai Massage</h3>
+      <div class="service-duration">60 / 90 / 120 min</div>
+      <p class="service-desc">A rhythmic, flowing massage using palms, thumbs, and gentle stretches to release deep muscular tension and restore energy flow throughout your body.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔥</span>
+      <div class="service-num">02</div>
+      <h3 class="service-name">Classic Hamam Ritual</h3>
+      <div class="service-duration">75 / 120 min</div>
+      <p class="service-desc">Experience the legendary Ottoman bathing tradition — steam, exfoliation with a kese mitt, and a luxurious foam massage that leaves skin luminously renewed.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌸</span>
+      <div class="service-num">03</div>
+      <h3 class="service-name">Aromatherapy Massage</h3>
+      <div class="service-duration">60 / 90 min</div>
+      <p class="service-desc">Warm essential oils blended for your unique needs are worked into muscles with long, flowing strokes — calming the nervous system and nourishing the skin.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💆</span>
+      <div class="service-num">04</div>
+      <h3 class="service-name">Deep Tissue Therapy</h3>
+      <div class="service-duration">60 / 90 min</div>
+      <p class="service-desc">Targeted pressure techniques penetrate deep muscle layers to dissolve chronic tension, adhesions, and postural imbalances that accumulate over time.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">✨</span>
+      <div class="service-num">05</div>
+      <h3 class="service-name">Gold Facial Ritual</h3>
+      <div class="service-duration">60 min</div>
+      <p class="service-desc">A luminizing facial treatment using 24K gold-infused serums and pressure-point massage to revive radiance, firmness, and an ethereal glow.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌺</span>
+      <div class="service-num">06</div>
+      <h3 class="service-name">Paradise Signature Package</h3>
+      <div class="service-duration">180 min</div>
+      <p class="service-desc">Our most coveted experience — Hamam ritual, full-body Thai massage, and gold facial combined into one transcendent journey of complete renewal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="padding: 8rem 4rem;">
+  <div class="experience-section">
+    <div class="experience-grid reveal">
+      <div>
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-title">The <em>Paradise</em> Difference</h2>
+        <p style="font-size:0.9rem; line-height:2; opacity:0.7;">Every element of your visit has been thoughtfully designed to transport you beyond the ordinary.</p>
+        <ul class="exp-features">
+          <li>
+            <div class="exp-dot"></div>
+            <div>
+              <h4>Certified Thai Therapists</h4>
+              <p>Our therapists are trained and certified in Thailand, ensuring authentic technique and deep therapeutic benefit.</p>
+            </div>
+          </li>
+          <li>
+            <div class="exp-dot"></div>
+            <div>
+              <h4>Premium Natural Products</h4>
+              <p>We use only the finest organic oils, herbal compresses, and mineral-rich spa products — nothing synthetic.</p>
+            </div>
+          </li>
+          <li>
+            <div class="exp-dot"></div>
+            <div>
+              <h4>Private Luxury Suites</h4>
+              <p>Each treatment room is a private sanctuary, designed for complete comfort, serenity, and discretion.</p>
+            </div>
+          </li>
+          <li>
+            <div class="exp-dot"></div>
+            <div>
+              <h4>Bespoke Wellness Journeys</h4>
+              <p>Every guest receives a personalized consultation so your experience is tailored precisely to your needs.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="exp-visual">
+        <div class="exp-card">
+          <span class="exp-emoji">🏆</span>
+          <h3>Award Winning</h3>
+          <p>Recognised as one of Ahmedabad's top wellness destinations</p>
+        </div>
+        <div class="exp-card">
+          <span class="exp-emoji">🕊️</span>
+          <h3>Pure Serenity</h3>
+          <p>A tranquil escape from the city's vibrant energy</p>
+        </div>
+        <div class="exp-card">
+          <span class="exp-emoji">🌿</span>
+          <h3>100% Natural</h3>
+          <p>All products are organic, ethically sourced, and skin-safe</p>
+        </div>
+        <div class="exp-card">
+          <span class="exp-emoji">💎</span>
+          <h3>Luxury Standard</h3>
+          <p>Impeccable service worthy of the finest spas worldwide</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner reveal">
+    <div class="section-label">Find Us</div>
+    <h2 class="section-title">Visit <em>The Paradise</em></h2>
+    <p style="font-size:0.9rem; line-height:2; opacity:0.7; margin-top:1rem;">We welcome you to experience the art of true relaxation. Book your ritual today.</p>
+    <div class="ornament"><div class="ornament-center"></div></div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <h4>Location</h4>
+        <p>FF-115, Grand Monarch<br/>Ramdevnagar Road<br/>Near Seema Hall<br/>Ahmedabad, Gujarat 380015</p>
+      </div>
+      <div class="contact-item">
+        <h4>Hours</h4>
+        <p>Monday – Sunday<br/>10:00 AM – 10:00 PM<br/><br/>Appointments Preferred</p>
+      </div>
+      <div class="contact-item">
+        <h4>Book Now</h4>
+        <p>Call or visit us to<br/>reserve your ritual<br/><br/><a href="https://maps.app.goo.gl/J6HEYEe5JbELBX2b7">View on Google Maps ↗</a></p>
+      </div>
+    </div>
+    <div class="contact-divider"><span>❧</span></div>
+    <div class="contact-cta-row">
+      <a href="https://wa.me/919081574115?text=Hello%2C%20I%20would%20like%20to%20book%20a%20spa%20treatment." class="btn-wa" target="_blank">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <a href="tel:+919081574115" class="btn-call">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        <span>90815 74115</span>
+      </a>
+      <a href="tel:+917041474115" class="btn-call" style="background: linear-gradient(135deg, #c47c2f, #7a4a10); box-shadow: 0 6px 20px rgba(196,124,47,0.3), 0 3px 0 rgba(100,40,0,0.4);">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        <span>70414 74115</span>
+      </a>
+    </div>
+    <div style="margin-top:2rem;">
+      <a href="https://maps.app.goo.gl/J6HEYEe5JbELBX2b7" class="btn-gold" target="_blank"><span>Get Directions</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a href="https://wa.me/919081574115?text=Hello%2C%20I%20would%20like%20to%20book%20a%20spa%20treatment%20at%20The%20Paradise%20Thai%20Hamam%20Spa." class="float-btn float-wa" target="_blank" aria-label="WhatsApp Us">
+    <span class="tooltip">WhatsApp Us</span>
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a href="tel:+919081574115" class="float-btn float-call1" aria-label="Call 9081574115">
+    <span class="tooltip">Call: 90815 74115</span>
+    <svg viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+  </a>
+  <a href="tel:+917041474115" class="float-btn float-call2" aria-label="Call 7041474115">
+    <span class="tooltip">Call: 70414 74115</span>
+    <svg viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">The Paradise Thai Hamam Spa</div>
+  <p>© 2025 The Paradise Spa · Ahmedabad, Gujarat</p>
+  <p style="opacity:0.3; font-size:0.7rem;">Crafted with ♥</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // 3D Mouse tilt on service cards
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const rotY = ((x - cx) / cx) * 8;
+      const rotX = -((y - cy) / cy) * 6;
+      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(20px) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  // 3D tilt on exp cards
+  document.querySelectorAll('.exp-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const rotY = ((x - cx) / cx) * 10;
+      const rotX = -((y - cy) / cy) * 8;
+      card.style.transform = `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(15px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  // 3D tilt on about box
+  const aboutBox = document.querySelector('.about-box');
+  if (aboutBox) {
+    aboutBox.addEventListener('mousemove', e => {
+      const rect = aboutBox.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const rotY = ((x - cx) / cx) * 10;
+      const rotX = -((y - cy) / cy) * 8;
+      aboutBox.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(10px)`;
+      aboutBox.style.boxShadow = `${rotY * -2}px ${rotX * 2}px 60px rgba(0,0,0,0.7), 0 0 40px rgba(201,169,110,0.1)`;
+    });
+    aboutBox.addEventListener('mouseleave', () => {
+      aboutBox.style.transform = '';
+      aboutBox.style.boxShadow = '';
+    });
+  }
+</script>
+</body>
+</html>
